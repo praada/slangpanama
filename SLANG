@@ -1,0 +1,62 @@
+import sqlite3
+import os
+
+APP_PATH = os.getcwd()
+DB_PATH = APP_PATH+'/my_database.db'
+
+con = sqlite3.connect(DB_PATH)
+cursor = con.cursor()
+
+try:
+    cursor.execute("""
+    CREATE TABLE SLANGPAN(
+    ID          INT PRIMARE KEY NOT NULL,
+    PALABRA     TEXT            NOT NULL,
+    SIGNIFICADO TEXT            NOT NULL
+    )
+    
+    """)
+
+except Exception as e:
+    print = e
+
+try:
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (1,'QUE XOPA','FORMA DE SALUDAR')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (2,'ON','FORMA DE DECIR NO')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (3,'OFI','ESTAR DE ACUERDO')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (4,'CHANTIN','CASA O HOGAR')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (5,'NAVE','BUEN CARRO')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (6,'GYAL','MUJER')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (7,'YEYE','PERSONA CON DINERO')
+        """)
+    cursor.execute("""
+        INSERT INTO SLANGPAN(ID, PALABRA, SIGNIFICADO) VALUES (8,'CHAKAL','PERSONA DE BARRIO')
+        """)
+except Exception as e:
+    print = e
+
+cursor.execute("""
+    UPDATE SLANGPAN SET PALABRA='GIAL' WHERE ID=6
+""")
+
+cursor.execute("""
+    DELETE FROM SLAGPAN WHERE ID=2
+""")
+
+con.commit()
+
+
+con.close()
