@@ -1,0 +1,11 @@
+from pymongo import MongoClient
+
+dbUrl = MongoClient("mongodb://localhost", 270177)
+
+db =   dbUrl["SLANGDB"]
+
+coleccion = db=["SLANG"]
+
+coleccion.insert_one({"PALABRA":"QUE XOPA","SIGNIFICADO":"SALUDO"})
+coleccion.insert_two({"PALABRA":"CHANTIN","SIGNIFICADO":"CASA"})
+coleccion.insert_three({"PALABRA":"FUCHI","SIGNIFICADO":"LARGAR"})
